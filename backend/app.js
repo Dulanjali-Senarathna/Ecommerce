@@ -7,11 +7,13 @@ const app = express();
 
 //import routes
 const productsRoute = require('./routes/products');
-const usersRoute = require('./routes/users');
+const ordersRoute = require('./routes/orders');
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.json());
 //use routes
 app.use('/api/products',productsRoute);
-app.use('/api/users',usersRoute);
+app.use('/api/orders',ordersRoute);
 
 app.use(cors({
     origin: "*",
